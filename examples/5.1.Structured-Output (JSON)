@@ -1,0 +1,45 @@
+
+# 🔹 5. Structured Output (JSON)
+
+## 📖 Concept
+
+Used for **machine-readable responses** (APIs, automation).
+
+---
+
+## 🧾 Prompt
+
+```
+Extract name and age in JSON:
+
+"Ravi is 28 years old"
+```
+
+---
+
+## 💻 LLM Code
+
+```python
+response = client.chat.completions.create(
+    model="gpt-5.3",
+    messages=[
+        {"role": "user", "content": "Extract name and age from: Ravi is 28 years old"}
+    ],
+    response_format={"type": "json_object"}
+)
+
+print(response.choices[0].message.content)
+```
+
+---
+
+## ✅ Output
+
+```json
+{
+  "name": "Ravi",
+  "age": 28
+}
+```
+
+---
